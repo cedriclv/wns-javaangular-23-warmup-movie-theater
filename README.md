@@ -10,6 +10,8 @@ La liste des films est stockée dans le fichier `src/main/resources/movies.csv`.
 
 Comme l'en tête du fichier l'indique, les colonnes sont ID, Titre, Année(s), Prix et Horaires, ce qui nous permettra d'accomplir l'exercice
 
+Note : il existe `src/main/java/fr/cinema/package-info.java`. Il n'a qu'un but descriptif et n'a pas d'impact sur le projet. 
+
 ## Pré-requis
 Vous devez avoir VSCode avec le "Extension Pack for Java" et être capable de compiler un programme Java, et de l'exécuter
 
