@@ -1,1 +1,81 @@
-# wns-javaangular-23-warmup-movie-theater
+# Warm up exercise: Movie Theater
+
+Vous incarnez une salle de cinéma qui propose des séances pour différents films, avec des prix et horaires spécifiques.
+
+Nous allons créer un petit programme qui permet aux clients de savoir à quelle heure il peut voir un film, et pour quel prix.
+
+Le code source devra être déposé dans le dossier `src/main/java`. Nous allons développer dans le package `fr.cinema` donc les fichiers `.java` seront situés dans `src/main/java/fr/cinema`
+
+La liste des films est stockée dans le fichier `src/main/resources/movies.csv`. Le format CSV est simple, il est expliqué ici : https://fr.wikipedia.org/wiki/Comma-separated_values
+
+Comme l'en tête du fichier l'indique, les colonnes sont ID, Titre, Année(s), Prix et Horaires, ce qui nous permettra d'accomplir l'exercice
+
+## 1. Préparer l'environnement collaboratif
+
+Pour cet exercice, vous allez travailler en petits groupes. Dans le but de pouvoir collaborer efficacement, vous allez pouvoir tester la puissance de VSCode Live Share.
+
+L'un des membres du groupe clone ce repository et l'ouvre dans VSCode.
+
+Puis suivez ce tutoriel pour mettre en place une session collaborative (vous pouvez vous connecter à LiveShare en utilisant votre compte GitHub) :
+https://code.visualstudio.com/learn/collaboration/live-share#_get-started-with-live-share
+
+
+Cette étape est validée lorsque plusieurs membres de votre groupe peuvent modifier en même temps un fichier sur VSCode (ce readme par exemple :))
+
+
+## 2. Créer un programme basique
+Créer une classe `Main` avec une méthode `main` affichant une simple ligne dans la console "Bienvenue cher client, quel film voulez vous voir ?"
+
+## 3. Lire la demande du client
+Améliorer le programme pour que le client puisse saisir dans le terminal un nom de film.
+
+Le programme doit lire ce que l'utilisateur a rentré, et afficher une nouvelle ligne "Recherche du film [Remettre ce que l'utilisateur a saisi]"
+
+Cet article explique comment lire depuis la console (Méthode 3 recommandée)
+https://www.geeksforgeeks.org/ways-to-read-input-from-console-in-java/
+
+## 4. Accéder au fichier des films
+Créer une nouvelle classe `MoviesDatabase` qui contient une méthode `String readAllMovies()`, permettant de lire le contenu du fichier des films.
+
+Le main va créer une instance (new) de la classe `MoviesDatabase`, et appeler la méthode readAllMovies pour afficher le contenu du fichier dans la console.
+
+Cette étape est validée lorsque le programme, en plus de lire le nom du film, affiche le contenu du fichier.
+
+https://pieces-of-code.com/guide/howto/java-files-read-write.html#fichiers-textes
+
+## 5. Récupérer la ligne d'un seul film
+Améliorer la classe `MoviesDatabase` pour rajouter une méthode `String getMovieInfo(String movieName)`.
+
+Cette étape est plus compliquée, il faut parcourir le contenu du fichier, ligne par ligne, pour chercher le nom du film passé en paramètre de la méthode, puis retourner uniquement la ligne correspondant au bon film.
+
+Cette étape est validée lorsque le programme, au lieu d'afficher tout le fichier dans la console, n'affiche que la ligne correspondant au nom de film entré par l'utilisateur
+
+Aide : 
+* https://www.delftstack.com/fr/howto/java/how-to-read-a-large-text-file-line-by-line-in-java/
+* https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/String.html#contains(java.lang.CharSequence)
+* https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/String.html#indexOf(java.lang.String)
+
+## 6. Créer une classe Movie
+Créer une nouvelle classe `Movie` pour stocker les infos du film. Nous aurons donc les champs suivants : 
+* id -> nombre
+* title -> chaîne de caractère
+* years -> liste de nombre
+* price -> nombre
+* times -> liste de chaînes
+
+Cette classe doit implémenter la méthode `toString()` pour afficher de façon élégante les informations du film.
+
+Cette étape est validée lorsque la méthode `MoviesDatabase.getMovieInfo(..)` retourne une instance de `Movie` et non une `String`
+
+## Optionnel : permette que l'utilisateur saisisse juste un mot du film
+
+## Optionnel : permette que l'utilisateur saisisse l'ID du film
+
+## Optionnel : générer un nouveau fichier CSV à partir d'une API en ligne
+L'API à utiliser : 
+https://story-shack-cdn-v2.glitch.me/generators/random-movie-generator?count=25
+
+Comment faire une requête HTTP en Java : 
+https://www.baeldung.com/java-9-http-client
+
+## Optionnel : Adapter MoviesDatabase pour n'utiliser que l'API et plus le fichier CSV
