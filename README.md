@@ -10,11 +10,14 @@ La liste des films est stockée dans le fichier `src/main/resources/movies.csv`.
 
 Comme l'en tête du fichier l'indique, les colonnes sont ID, Titre, Année(s), Prix et Horaires, ce qui nous permettra d'accomplir l'exercice
 
+## Pré-requis
+Vous devez avoir VSCode avec le "Extension Pack for Java" et être capable de compiler un programme Java, et de l'exécuter
+
 ## 1. Préparer l'environnement collaboratif
 
 Pour cet exercice, vous allez travailler en petits groupes. Dans le but de pouvoir collaborer efficacement, vous allez pouvoir tester la puissance de VSCode Live Share.
 
-L'un des membres du groupe clone ce repository et l'ouvre dans VSCode.
+L'un des membres du groupe fork et clone ce repository et l'ouvre dans VSCode.
 
 Puis suivez ce tutoriel pour mettre en place une session collaborative (vous pouvez vous connecter à LiveShare en utilisant votre compte GitHub) :
 https://code.visualstudio.com/learn/collaboration/live-share#_get-started-with-live-share
