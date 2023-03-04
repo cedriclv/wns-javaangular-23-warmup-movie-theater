@@ -27,7 +27,7 @@ Cette étape est validée lorsque plusieurs membres de votre groupe peuvent modi
 
 
 ## 2. Créer un programme basique
-Créer une classe `Main` avec une méthode `main` affichant une simple ligne dans la console "Bienvenue cher client, quel film voulez vous voir ?"
+Créer une classe `Main` (dans un nouveau fichier `Main.java` donc) avec une méthode `main` affichant une simple ligne dans la console "Bienvenue cher client, quel film voulez vous voir ?"
 
 ## 3. Lire la demande du client
 Améliorer le programme pour que le client puisse saisir dans le terminal un nom de film.
