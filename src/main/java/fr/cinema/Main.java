@@ -15,7 +15,7 @@ public class Main {
         // for (String movie : movies) {
         //     System.out.println(movie);
         // }
-       
+        System.out.println("///////////////");
         System.out.println(moviesDatabase.getMovieInfo(userInput));
         
     }

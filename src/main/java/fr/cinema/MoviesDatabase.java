@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.rmi.server.RemoteRef;
 import java.util.List;
 
 // ## 5. Récupérer la ligne d'un seul film
@@ -17,7 +18,6 @@ import java.util.List;
 // * https://www.delftstack.com/fr/howto/java/how-to-read-a-large-text-file-line-by-line-in-java/
 // * https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/String.html#contains(java.lang.CharSequence)
 // * https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/String.html#indexOf(java.lang.String)
-
 
 class MoviesDatabase {
     private static MoviesDatabase instance = null;
@@ -34,9 +34,9 @@ class MoviesDatabase {
 
     public List<String> readAllMovies() {
         Path path = Paths.get("../resources/movies.csv");
-        List<String> lines ;
+        List<String> lines;
         try {
-         lines = Files.readAllLines(path);
+            lines = Files.readAllLines(path);
         } catch (IOException e) {
             e.printStackTrace();
             lines = null;
@@ -44,16 +44,26 @@ class MoviesDatabase {
         return lines;
     }
 
-    public String getMovieInfo(String movieName) {
-       List<String> lines = readAllMovies();
-         String movieInfo = "";
+    public Movie getMovieInfo(String movieName) {
+        List<String> lines = readAllMovies();
+        Movie movie = null;
         for (String line : lines) {
             if (line.toLowerCase().contains(movieName.toLowerCase())) {
-                movieInfo = line;      
-            }
+                movie = new Movie(Integer.parseInt(line.split(";")[0]), line.split(";")[1],
+                        Integer.parseInt(line.split(";")[2]), Double.parseDouble(line.split(";")[3]),
+                        (line.split(";")[4]));
+                // movie.setId(Integer.parseInt(line.split(";")[0]));
+                // movie.setTitle(line.split(";")[1]);
+                // movie.setYears(Integer.parseInt(line.split(";")[2]));
+                // movie.setPrice(Double.parseDouble(line.split(";")[3]));
+                // movie.setTimes((line.split(";")[4]));
+             
+            } 
+        }
+        return movie;
+        
+
     }
-            return movieInfo;
-}
 }
 
 // ## 4. Accéder au fichier des films
